@@ -48,29 +48,28 @@
     <script>
 
         // 监听表单提交
-        $('form').on('submit', function () {
-            // 1. 获取用户填写的表单信息
-            var data = $(this).serialize();
-            
-            // 2. 通过 ajax 将信息发送给服务端
+        $('form').on('submit',function () {
+            // 1.获取用户填写的表单信息
+            var data =  $(this).serialize();
+            // 2.通过ajax将信息发送给服务端
             $.ajax({
-                // url: 'http://localhost:3000/user/login',
-                // /api = http://localhost:3000
-                // /api/user/login = http://localhost:3000/user/login
-                url: '/api/user/login',
-                type: 'post',
-                data: data,
-                success: function (info) {
-                    // 3. 得到服务端的响应结果
+                // 确定后台给出的端口
+                url:'/api/user/login',
+                // 确定提交数据的方式
+                type:'post',
+                // 确定数据方式：可以是对象，也可以是变量的形式
+                data:data,
+                // 3.得到服务端的响应结果
+                success:function (info){
+                // 4.处理登陆后的逻辑
                     // console.log(info);
-
-                    // 4. 处理登录后的逻辑
-                    // location.href = '/';
+                //    location.href='/'; 
+                    
                 }
             })
-            
-            // 阻表单单默认提交
+            // 阻止表单默认提交
             return false;
+
         })
     </script>
 </body>
