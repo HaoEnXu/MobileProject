@@ -62,9 +62,11 @@
                 // 3.得到服务端的响应结果
                 success:function (info){
                 // 4.处理登陆后的逻辑
-                    // console.log(info);
-                //    location.href='/'; 
-                    
+                    if(info.success){
+                        location.href = '/';
+                        return ;
+                    } 
+                    alert(info.message);
                 }
             })
             // 阻止表单默认提交
